@@ -1,0 +1,11 @@
+
+fastapi
+uvicorn[standard]
+caldav
+icalendar
+google-auth
+google-auth-oauthlib
+requests
+python-dotenv
+python3-uvicorn
+cachetools

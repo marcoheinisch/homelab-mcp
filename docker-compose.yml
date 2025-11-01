@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  caldav-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: caldav-service
+    restart: unless-stopped
+
+    # Portfreigabe für FastAPI/Uvicorn
+    ports:
+      - "8000:8000"
+
+    # Mounts für lokale Daten (Tokens, Cache)
+    volumes:
+      - ./data:/data
+
+    # Optional: Healthcheck für Komodo und Docker
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+    # Sicherheit: kein Root-User
+    user: "1000:1000"
+
+networks:
+  default:
+    driver: bridge
