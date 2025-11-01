@@ -2,6 +2,9 @@ import logging
 from typing import List, Dict, Any, Callable
 from datetime import datetime, date, timezone, timedelta
 
+
+logger = logging.getLogger(__name__)
+
 def normalize_to_datetime(value) -> datetime:
     """Convert date or datetime (possibly naive) to aware datetime in UTC."""
     if isinstance(value, datetime):

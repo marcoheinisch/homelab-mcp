@@ -1,4 +1,3 @@
-
 fastapi
 uvicorn[standard]
 caldav
@@ -7,5 +6,4 @@ google-auth
 google-auth-oauthlib
 requests
 python-dotenv
-python3-uvicorn
 cachetools

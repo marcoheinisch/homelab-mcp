@@ -15,6 +15,7 @@ load_dotenv()
 CACHE_TTL = int(os.getenv("CACHE_TTL_SECONDS", "300"))
 
 cache = TTLCache(maxsize=100, ttl=CACHE_TTL)
+logger = logging.getLogger(__name__)
 
 class Calendar:
     """Interface for calendar services with caching.

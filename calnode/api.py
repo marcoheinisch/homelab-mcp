@@ -1,3 +1,4 @@
+import sys
 from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.responses import JSONResponse
 from calnode.calendars import CalDAVCalendar, Calendars, IcalCalendar
@@ -12,8 +13,7 @@ load_dotenv()
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-    filename="calnode.log",
-    filemode="w"
+    stream=sys.stdout
     )
 
 logger = logging.getLogger(__name__)
